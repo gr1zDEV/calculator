@@ -18,6 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 .display {
@@ -47,16 +48,8 @@ body {
   margin-bottom: 10px;
 }
 
-/* Show scientific row only in landscape */
-@media (orientation: landscape) {
-  .scientific-row {
-    display: grid;
-  }
-
-  .display {
-    font-size: 48px;
-    height: 90px;
-  }
+.calculator.scientific-mode .scientific-row {
+  display: grid;
 }
 
 .btn {
@@ -97,4 +90,20 @@ body {
   border-radius: 999px;
   padding-top: 0;
   height: 100%;
+}
+
+.toggle-btn {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #444;
 }
