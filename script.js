@@ -1,4 +1,6 @@
 const display = document.getElementById('display');
+const calculator = document.getElementById('calculator');
+const toggleButton = document.getElementById('toggleScientific');
 let current = '';
 let previous = '';
 let operator = null;
@@ -14,6 +16,13 @@ document.querySelector('.buttons').addEventListener('click', function (e) {
   else if (value === '%') percent();
   else if (['+', '-', '×', '÷'].includes(value)) setOperation(value);
   else if (value === '=') calculate();
+});
+
+toggleButton.addEventListener('click', () => {
+  calculator.classList.toggle('scientific-mode');
+  toggleButton.textContent = calculator.classList.contains('scientific-mode')
+    ? '➖ Standard Mode'
+    : '🧪 Scientific Mode';
 });
 
 function appendNumber(num) {
