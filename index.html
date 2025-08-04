@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="calculator">
+  <div class="calculator" id="calculator">
     <div class="display" id="display">0</div>
 
-    <div class="scientific-row">
-      <!-- Add span wrappers for visual consistency -->
+    <div class="scientific-row" id="scientificRow">
       <button class="btn sci"><span>(</span></button>
       <button class="btn sci"><span>)</span></button>
       <button class="btn sci"><span>mc</span></button>
@@ -69,6 +68,8 @@
       <button class="btn dark"><span>.</span></button>
       <button class="btn orange"><span>=</span></button>
     </div>
+
+    <button id="toggleScientific" class="toggle-btn">🧪 Scientific Mode</button>
   </div>
 
   <script src="script.js"></script>
