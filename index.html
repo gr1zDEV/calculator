@@ -9,49 +9,68 @@
 <body>
   <div class="calculator">
     <div class="display" id="display">0</div>
+
+    <div class="scientific-row">
+      <button class="btn sci" onclick="appendFunc('(')">(</button>
+      <button class="btn sci" onclick="appendFunc(')')">)</button>
+      <button class="btn sci" onclick="memory('mc')">mc</button>
+      <button class="btn sci" onclick="memory('m+')">m+</button>
+      <button class="btn sci" onclick="memory('m-')">m-</button>
+      <button class="btn sci" onclick="memory('mr')">mr</button>
+
+      <button class="btn sci" onclick="appendFunc('2nd')">2ⁿᵈ</button>
+      <button class="btn sci" onclick="appendFunc('x²')">x²</button>
+      <button class="btn sci" onclick="appendFunc('x³')">x³</button>
+      <button class="btn sci" onclick="appendFunc('x^y')">xʸ</button>
+      <button class="btn sci" onclick="appendFunc('e^x')">eˣ</button>
+      <button class="btn sci" onclick="appendFunc('10^x')">10ˣ</button>
+
+      <button class="btn sci" onclick="appendFunc('1/x')">1/x</button>
+      <button class="btn sci" onclick="appendFunc('2√x')">²√x</button>
+      <button class="btn sci" onclick="appendFunc('3√x')">³√x</button>
+      <button class="btn sci" onclick="appendFunc('y√x')">ʸ√x</button>
+      <button class="btn sci" onclick="appendFunc('ln')">ln</button>
+      <button class="btn sci" onclick="appendFunc('log')">log₁₀</button>
+
+      <button class="btn sci" onclick="appendFunc('x!')">x!</button>
+      <button class="btn sci" onclick="appendFunc('sin')">sin</button>
+      <button class="btn sci" onclick="appendFunc('cos')">cos</button>
+      <button class="btn sci" onclick="appendFunc('tan')">tan</button>
+      <button class="btn sci" onclick="appendFunc('e')">e</button>
+      <button class="btn sci" onclick="appendFunc('EE')">EE</button>
+
+      <button class="btn sci" onclick="appendFunc('Rand')">Rand</button>
+      <button class="btn sci" onclick="appendFunc('sinh')">sinh</button>
+      <button class="btn sci" onclick="appendFunc('cosh')">cosh</button>
+      <button class="btn sci" onclick="appendFunc('tanh')">tanh</button>
+      <button class="btn sci" onclick="appendFunc('π')">π</button>
+      <button class="btn sci" onclick="appendFunc('Rad')">Rad</button>
+    </div>
+
     <div class="buttons">
-      <!-- First Row -->
-      <button class="btn light-gray" onclick="clearDisplay()">AC</button>
-      <button class="btn light-gray" onclick="toggleSign()">±</button>
-      <button class="btn light-gray" onclick="percent()">%</button>
+      <button class="btn light" onclick="clearDisplay()">AC</button>
+      <button class="btn light" onclick="toggleSign()">±</button>
+      <button class="btn light" onclick="percent()">%</button>
       <button class="btn orange" onclick="setOperation('/')">÷</button>
 
-      <!-- Second Row -->
-      <button class="btn dark-gray" onclick="appendNumber('7')">7</button>
-      <button class="btn dark-gray" onclick="appendNumber('8')">8</button>
-      <button class="btn dark-gray" onclick="appendNumber('9')">9</button>
+      <button class="btn dark" onclick="appendNumber('7')">7</button>
+      <button class="btn dark" onclick="appendNumber('8')">8</button>
+      <button class="btn dark" onclick="appendNumber('9')">9</button>
       <button class="btn orange" onclick="setOperation('*')">×</button>
 
-      <!-- Third Row -->
-      <button class="btn dark-gray" onclick="appendNumber('4')">4</button>
-      <button class="btn dark-gray" onclick="appendNumber('5')">5</button>
-      <button class="btn dark-gray" onclick="appendNumber('6')">6</button>
+      <button class="btn dark" onclick="appendNumber('4')">4</button>
+      <button class="btn dark" onclick="appendNumber('5')">5</button>
+      <button class="btn dark" onclick="appendNumber('6')">6</button>
       <button class="btn orange" onclick="setOperation('-')">−</button>
 
-      <!-- Fourth Row -->
-      <button class="btn dark-gray" onclick="appendNumber('1')">1</button>
-      <button class="btn dark-gray" onclick="appendNumber('2')">2</button>
-      <button class="btn dark-gray" onclick="appendNumber('3')">3</button>
+      <button class="btn dark" onclick="appendNumber('1')">1</button>
+      <button class="btn dark" onclick="appendNumber('2')">2</button>
+      <button class="btn dark" onclick="appendNumber('3')">3</button>
       <button class="btn orange" onclick="setOperation('+')">+</button>
 
-      <!-- Fifth Row -->
-      <button class="btn dark-gray zero" onclick="appendNumber('0')">0</button>
-      <button class="btn dark-gray" onclick="appendNumber('.')">.</button>
+      <button class="btn dark" onclick="appendNumber('0')" style="grid-column: span 2;">0</button>
+      <button class="btn dark" onclick="appendNumber('.')">.</button>
       <button class="btn orange" onclick="calculate()">=</button>
-
-      <!-- Scientific Row (Optional Expanded View) -->
-      <div class="scientific">
-        <button class="btn sci" onclick="calculateScientific('sin')">sin</button>
-        <button class="btn sci" onclick="calculateScientific('cos')">cos</button>
-        <button class="btn sci" onclick="calculateScientific('tan')">tan</button>
-        <button class="btn sci" onclick="calculateScientific('log')">log</button>
-        <button class="btn sci" onclick="calculateScientific('ln')">ln</button>
-        <button class="btn sci" onclick="calculateScientific('sqrt')">√</button>
-        <button class="btn sci" onclick="calculateScientific('square')">x²</button>
-        <button class="btn sci" onclick="calculateScientific('inv')">1/x</button>
-        <button class="btn sci" onclick="appendConstant('π')">π</button>
-        <button class="btn sci" onclick="appendConstant('e')">e</button>
-      </div>
     </div>
   </div>
   <script src="script.js"></script>
