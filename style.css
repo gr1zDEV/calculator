@@ -40,25 +40,38 @@ body {
 }
 
 .btn {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
   border: none;
   border-radius: 50%;
-  aspect-ratio: 1 / 1;
-  font-size: 1.4rem;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #333;
 }
 
-.dark {
-  background: #333;
+.btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.4rem;
 }
 
 .light {
   background: #a5a5a5;
+}
+
+.light span {
   color: black;
 }
 
 .orange {
   background: #f1a33c;
+}
+
+.zero {
+  grid-column: span 2;
+  border-radius: 999px;
+  padding-top: 0;
+  height: 100%;
 }
