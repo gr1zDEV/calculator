@@ -39,7 +39,7 @@ function setOperation(op) {
 }
 
 function calculate() {
-  if (operator === null || current === '') return;
+  if (!operator || !current) return;
   let result;
   const prev = parseFloat(previous);
   const curr = parseFloat(current);
@@ -56,32 +56,10 @@ function calculate() {
   updateDisplay();
 }
 
-function calculateScientific(func) {
-  let val = parseFloat(current);
-  switch (func) {
-    case 'sin': current = Math.sin(val).toString(); break;
-    case 'cos': current = Math.cos(val).toString(); break;
-    case 'tan': current = Math.tan(val).toString(); break;
-    case 'log': current = Math.log10(val).toString(); break;
-    case 'ln': current = Math.log(val).toString(); break;
-    case 'sqrt': current = Math.sqrt(val).toString(); break;
-    case 'square': current = (val * val).toString(); break;
-    case 'inv': current = (1 / val).toString(); break;
-  }
-  updateDisplay();
+function appendFunc(func) {
+  alert(func + ' function pressed (not implemented yet)');
 }
 
-function appendConstant(constant) {
-  if (constant === 'π') current += Math.PI.toString();
-  if (constant === 'e') current += Math.E.toString();
-  updateDisplay();
+function memory(type) {
+  alert('Memory function ' + type + ' clicked (not implemented)');
 }
-
-document.addEventListener('keydown', function(e) {
-  if (!isNaN(e.key)) appendNumber(e.key);
-  else if (['+', '-', '*', '/'].includes(e.key)) setOperation(e.key);
-  else if (e.key === 'Enter') calculate();
-  else if (e.key === '.') appendNumber('.');
-  else if (e.key === 'Backspace') current = current.slice(0, -1), updateDisplay();
-  else if (e.key.toLowerCase() === 'c') clearDisplay();
-});
