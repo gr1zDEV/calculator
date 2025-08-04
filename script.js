@@ -1,7 +1,20 @@
-let display = document.getElementById('display');
+const display = document.getElementById('display');
 let current = '';
 let previous = '';
 let operator = null;
+
+document.querySelector('.buttons').addEventListener('click', function (e) {
+  const value = e.target.textContent.trim();
+  if (!value) return;
+
+  if (!isNaN(value)) appendNumber(value);
+  else if (value === '.') appendNumber(value);
+  else if (value === 'AC') clearDisplay();
+  else if (value === '±') toggleSign();
+  else if (value === '%') percent();
+  else if (['+', '-', '×', '÷'].includes(value)) setOperation(value);
+  else if (value === '=') calculate();
+});
 
 function appendNumber(num) {
   if (num === '.' && current.includes('.')) return;
@@ -33,16 +46,17 @@ function percent() {
 function setOperation(op) {
   if (current === '') return;
   if (previous !== '') calculate();
-  operator = op;
+  operator = op.replace('×', '*').replace('÷', '/');
   previous = current;
   current = '';
 }
 
 function calculate() {
   if (!operator || !current) return;
-  let result;
   const prev = parseFloat(previous);
   const curr = parseFloat(current);
+  let result;
+
   switch (operator) {
     case '+': result = prev + curr; break;
     case '-': result = prev - curr; break;
@@ -50,16 +64,9 @@ function calculate() {
     case '/': result = prev / curr; break;
     default: return;
   }
+
   current = result.toString();
   operator = null;
   previous = '';
   updateDisplay();
-}
-
-function appendFunc(func) {
-  alert(func + ' function pressed (not implemented yet)');
-}
-
-function memory(type) {
-  alert('Memory function ' + type + ' clicked (not implemented)');
 }
