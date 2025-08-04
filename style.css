@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
@@ -17,7 +17,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 .display {
@@ -25,7 +25,7 @@ body {
   color: white;
   text-align: right;
   padding: 0 10px;
-  min-height: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -41,13 +41,13 @@ body {
 }
 
 .scientific-row {
-  display: none; /* hidden by default */
+  display: none;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   margin-bottom: 10px;
 }
 
-/* Show scientific row only in landscape mode */
+/* Show scientific row only in landscape */
 @media (orientation: landscape) {
   .scientific-row {
     display: grid;
@@ -55,18 +55,19 @@ body {
 
   .display {
     font-size: 48px;
-    min-height: 90px;
+    height: 90px;
   }
 }
 
 .btn {
   position: relative;
   width: 100%;
-  padding-top: 100%; /* maintain aspect ratio */
+  padding-top: 100%;
   border: none;
   border-radius: 50%;
   background-color: #333;
   overflow: hidden;
+  touch-action: manipulation;
 }
 
 .btn span {
